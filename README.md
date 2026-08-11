@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# tuman-ses
+=======
 # Dostlik SanEpi
 
 Ikki qismdan iborat loyiha:
@@ -37,3 +40,4 @@ Ro'yxatdan o'tgan foydalanuvchi hech qanday rolga ega bo'lmaydi — Django admin
 
 - Frontend: Vite, TypeScript, React, shadcn-ui, Tailwind CSS, TanStack Query
 - Backend: Django 5, Django REST Framework, SimpleJWT, django-cors-headers
+>>>>>>> 0da9e24 (v1)
