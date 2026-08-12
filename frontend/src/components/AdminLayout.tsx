@@ -11,6 +11,7 @@ import {
   X,
   ChevronDown,
   UserPlus,
+  UserCog,
   Mail
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -59,6 +60,7 @@ const AdminLayout = ({ children, title, subtitle }: AdminLayoutProps) => {
     { icon: UserPlus, label: "Qabul", path: "/admin/qabul", roles: ["main", "qabul"] },
     { icon: FileText, label: "To'lovlar", path: "/admin/payment", roles: ["main", "payment"] },
     { icon: Users, label: "Ro'yxatdan o'tganlar", path: "/admin/registrants", roles: ["main", "registrants"] },
+    { icon: UserCog, label: "Foydalanuvchilar", path: "/admin/users", roles: ["main"] },
   ];
 
   // Filter nav items based on role
@@ -125,10 +127,12 @@ const AdminLayout = ({ children, title, subtitle }: AdminLayoutProps) => {
         {/* Footer */}
         <div className="p-4 border-t border-sidebar-border space-y-2">
           <Link
-            to="/admin/main"
+            to="/admin/settings"
             className={cn(
               "flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200",
-              "hover:bg-sidebar-accent text-sidebar-foreground/70 hover:text-sidebar-foreground"
+              isActive("/admin/settings")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-md"
+                : "hover:bg-sidebar-accent text-sidebar-foreground/70 hover:text-sidebar-foreground"
             )}
           >
             <Settings className="w-5 h-5 shrink-0" />

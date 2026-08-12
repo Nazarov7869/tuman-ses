@@ -1,5 +1,5 @@
 // Fetch wrapper for the Django REST backend, replacing the Supabase client.
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL as string | undefined) || "http://127.0.0.1:8000";
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "http://127.0.0.1:8000";
 
 const ACCESS_KEY = "access_token";
 const REFRESH_KEY = "refresh_token";

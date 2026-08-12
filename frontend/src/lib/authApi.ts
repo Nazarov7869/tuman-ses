@@ -33,3 +33,34 @@ export const login = async (email: string, password: string): Promise<LoginRespo
 };
 
 export const getMe = () => apiFetch<Me>("/api/auth/me/");
+
+export const changePassword = (current_password: string, new_password: string) =>
+  apiFetch<{ detail: string }>("/api/auth/change-password/", {
+    method: "POST",
+    body: JSON.stringify({ current_password, new_password }),
+  });
+
+export interface AdminUser {
+  id: number;
+  email: string;
+  role: Role | null;
+  is_active: boolean;
+  date_joined: string;
+}
+
+export const listUsers = () => apiFetch<AdminUser[]>("/api/auth/users/");
+
+export const createUser = (email: string, password: string, role: Role) =>
+  apiFetch<AdminUser>("/api/auth/users/", {
+    method: "POST",
+    body: JSON.stringify({ email, password, role }),
+  });
+
+export const updateUser = (id: number, data: { role?: Role; is_active?: boolean }) =>
+  apiFetch<AdminUser>(`/api/auth/users/${id}/`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+
+export const deleteUser = (id: number) =>
+  apiFetch<null>(`/api/auth/users/${id}/`, { method: "DELETE" });

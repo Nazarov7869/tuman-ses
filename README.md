@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# tuman-ses
-=======
 # Dostlik SanEpi
 
 Ikki qismdan iborat loyiha:

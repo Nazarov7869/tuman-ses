@@ -10,6 +10,8 @@ import MainAdmin from "./pages/admin/MainAdmin";
 import QabulAdmin from "./pages/admin/QabulAdmin";
 import PaymentAdmin from "./pages/admin/PaymentAdmin";
 import RegistrantsAdmin from "./pages/admin/RegistrantsAdmin";
+import Settings from "./pages/admin/Settings";
+import UserManagement from "./pages/admin/UserManagement";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -73,6 +75,22 @@ const App = () => (
             element={
               <ProtectedRoute requiredRole="registrants">
                 <RegistrantsAdmin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <ProtectedRoute requiredRole="main">
+                <UserManagement />
               </ProtectedRoute>
             }
           />
